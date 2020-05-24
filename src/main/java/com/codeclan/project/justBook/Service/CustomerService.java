@@ -13,8 +13,6 @@ public class CustomerService {
     @Autowired
     private CustomerDAO customerDAO;
 
-
-
     public Collection<Customer> getCustomers() {
         return customerDAO.getCustomers();
     }
