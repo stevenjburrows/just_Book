@@ -15,7 +15,7 @@ public class Table {
     private boolean isBooked;
 
     public Table(Integer number, Integer numberOfSeats, String type) {
-//        this.id = new ObjectId().toString();
+        this.id = new ObjectId().toString();
         this.number = number;
         this.numberOfSeats = numberOfSeats;
         this.type = type;

@@ -18,7 +18,7 @@ public class Customer {
     private Integer visits;
 
     public Customer(String name, String allergies, String notes) {
-//        this.id = new ObjectId().toString();
+        this.id = new ObjectId().toString();
         this.name = name;
         this.allergies = allergies;
         this.notes = notes;

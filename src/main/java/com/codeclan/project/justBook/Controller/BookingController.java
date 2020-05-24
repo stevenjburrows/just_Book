@@ -17,7 +17,7 @@ public class BookingController {
     @Autowired
     BookingRepository bookingRepository;
 
-    @GetMapping (value = "/name/{name}")
+    @GetMapping (value = "/{name}")
     public ResponseEntity<List<Booking>> getByCustomerName(@PathVariable String name) {
         return new ResponseEntity<List<Booking>>(bookingRepository.findByCustomerName(name), HttpStatus.OK);
     }

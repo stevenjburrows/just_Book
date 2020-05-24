@@ -23,7 +23,7 @@ public class Booking {
     private SimpleDateFormat endDate;
 
     public Booking(Customer customer, Table table, String partyName, int partySize, SimpleDateFormat startDate, SimpleDateFormat endDate) {
-//        this.id = new ObjectId().toString();
+        this.id = new ObjectId().toString();
         this.customer = customer;
         this.table = table;
         this.partyName = partyName;
