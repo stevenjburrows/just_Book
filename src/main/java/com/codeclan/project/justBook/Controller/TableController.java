@@ -1,9 +1,7 @@
 package com.codeclan.project.justBook.Controller;
 
 import com.codeclan.project.justBook.DAO.TableRepository;
-import com.codeclan.project.justBook.Entity.Booking;
 import com.codeclan.project.justBook.Entity.Table;
-import com.codeclan.project.justBook.Service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +24,4 @@ public class TableController {
         tableRepository.save(table);
         return new ResponseEntity<>(table, HttpStatus.CREATED); }
 
-//    @PostMapping
-//    public Table postTable(@RequestBody Table table) { return tableService.createTable(table);}
 }

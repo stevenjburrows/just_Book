@@ -34,12 +34,11 @@ public class BookingController {
     public ResponseEntity<Booking> postBooking(@RequestBody Booking booking) {
         bookingRepository.save(booking);
         return new ResponseEntity<>(booking, HttpStatus.CREATED); }
-//    public Booking postBooking(@RequestBody Booking booking) { return bookingService.createBooking(booking); }
 
-    @PutMapping(value = "/pirates/{id}")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Booking> putBooking(@RequestBody Booking booking, @PathVariable String id){
         if (booking.getId() != id){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // response entity with no body
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         bookingRepository.save(booking);
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
