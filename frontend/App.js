@@ -1,19 +1,49 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import styled from 'styled-components';
+import CustomButton from './components/CustomButton';
+import {Tile} from 'react-native-elements';
+// import myImage from './assets/justBook.jpg';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <Container>        
+        <Tile
+          imageSrc={require("./assets/justBook.jpg")}
+          featured
+        />
+          {/* <HeaderImage img={ImagePath}></HeaderImage> */}
+          {/* <Title> justBook </Title> */}
+          <CustomButton
+          text="Add Booking"
+          textColor="#01d1e5"
+          backgroundColor="lavenderblush"
+          />
+          <CustomButton
+          text="Add Customer"
+          textColor="#01d1e5"
+          backgroundColor="lavenderblush"
+          />
+      </Container>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Container = styled.View`
+flex: 1;
+background-color: papayawhip;
+justify-content: flex-start;
+align-items: center;
+`;
+
+const Title = styled.Text`
+font-size: 24px;
+font-weight: 500;
+color: palevioletred;
+`;
+
+// const HeaderImage = styled.HeaderImage`
+// // flex: 0.3;
+// background-image: url(${myImage});
+// `;
