@@ -17,29 +17,36 @@ public class BookingController {
     @Autowired
     BookingRepository bookingRepository;
 
-    @GetMapping (value = "/{name}")
-    public ResponseEntity<List<Booking>> getByCustomerName(@PathVariable String name) {
-        return new ResponseEntity<List<Booking>>(bookingRepository.findByCustomerName(name), HttpStatus.OK);
+
+
+    @GetMapping
+    public ResponseEntity<List<Booking>> getBookings(
+            @RequestParam(name = "name", required = false) String name
+    ) {
+        if(name != null) {
+            return new ResponseEntity<List<Booking>>(bookingRepository.findByCustomerName(name), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<List<Booking>> (bookingRepository.findAll(), HttpStatus.OK);
     }
+
+    @PostMapping
+    public ResponseEntity<Booking> postBooking(@RequestBody Booking booking) {
+        bookingRepository.save(booking);
+        return new ResponseEntity<>(booking, HttpStatus.CREATED);
+    }
+
 
     @GetMapping(value = "/{id}")
     public ResponseEntity getBooking(@PathVariable String id){
         return new ResponseEntity<>(bookingRepository.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping
-    public Collection<Booking> getBookings() { return bookingRepository.findAll(); }
-
-    @PostMapping
-    public ResponseEntity<Booking> postBooking(@RequestBody Booking booking) {
-        bookingRepository.save(booking);
-        return new ResponseEntity<>(booking, HttpStatus.CREATED); }
-
     @PutMapping(value = "/{id}")
     public ResponseEntity<Booking> putBooking(@RequestBody Booking booking, @PathVariable String id){
-        if ( !id.equals(booking.getId())){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+//        if ( !id.equals(booking.getId())){
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
         bookingRepository.save(booking);
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
     }

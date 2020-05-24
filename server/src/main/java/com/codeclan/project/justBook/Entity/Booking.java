@@ -6,12 +6,12 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Document
 public class Booking {
-//    SimpleDateFormat sdf;
     @Id
     private String id;
     @JsonBackReference
@@ -20,22 +20,41 @@ public class Booking {
     private Table table;
     private String partyName;
     private int partySize;
+    private String start;
+    private String end;
     private Date startDate;
     private Date endDate;
 
 
-    public Booking(Customer customer, Table table, String partyName, int partySize, Date startDate, Date endDate) {
+    public Booking(Customer customer, Table table, String partyName, int partySize, String start, String end) throws ParseException {
         this.id = new ObjectId().toString();
-//        this.sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
         this.customer = customer;
         this.table = table;
         this.partyName = partyName;
         this.partySize = partySize;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.start = start;
+        this.end = end;
+//        this.startDate = new SimpleDateFormat("HH:mm dd-MM-yyyy").parse(start);
+//        this.endDate = new SimpleDateFormat("HH:mm dd-MM-yyyy").parse(end);
     }
 
     public Booking() {
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
     }
 
     public String getId() {

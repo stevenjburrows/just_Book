@@ -38,7 +38,7 @@ public class DataLoader implements ApplicationRunner {
         Table table1 = new Table(1, 4, "Booth");
         tableRepository.save(table1);
 
-        Booking booking1 = new Booking(customer1, table1, "Party!", 3, sdf.parse("14:00 12/06/2020"), sdf.parse("16:00 12/06/2020"));
+        Booking booking1 = new Booking(customer1, table1, "Party!", 3, "14:00 12-06-2020", "16:00 12-06-2020");
         bookingRepository.save(booking1);
         customer1.addBooking(booking1.getId());
         customerRepository.save(customer1);
