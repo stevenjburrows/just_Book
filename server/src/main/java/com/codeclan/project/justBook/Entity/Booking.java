@@ -7,10 +7,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Document
 public class Booking {
-
+//    SimpleDateFormat sdf;
     @Id
     private String id;
     @JsonBackReference
@@ -19,11 +20,13 @@ public class Booking {
     private Table table;
     private String partyName;
     private int partySize;
-    private SimpleDateFormat startDate;
-    private SimpleDateFormat endDate;
+    private Date startDate;
+    private Date endDate;
 
-    public Booking(Customer customer, Table table, String partyName, int partySize, SimpleDateFormat startDate, SimpleDateFormat endDate) {
+
+    public Booking(Customer customer, Table table, String partyName, int partySize, Date startDate, Date endDate) {
         this.id = new ObjectId().toString();
+//        this.sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
         this.customer = customer;
         this.table = table;
         this.partyName = partyName;
@@ -75,19 +78,19 @@ public class Booking {
         this.partySize = partySize;
     }
 
-    public SimpleDateFormat getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(SimpleDateFormat startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public SimpleDateFormat getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(SimpleDateFormat endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 }

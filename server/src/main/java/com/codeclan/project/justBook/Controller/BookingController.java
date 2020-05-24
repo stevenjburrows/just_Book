@@ -37,10 +37,16 @@ public class BookingController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Booking> putBooking(@RequestBody Booking booking, @PathVariable String id){
-        if (booking.getId() != id){
+        if ( !id.equals(booking.getId())){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         bookingRepository.save(booking);
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<List<Booking>> deleteBooking(@PathVariable String id){
+        bookingRepository.deleteById(id);
+        return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }
 }
