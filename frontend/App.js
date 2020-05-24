@@ -13,12 +13,13 @@ export default class App extends React.Component {
           imageSrc={require("./assets/justBook.jpg")}
           featured
         />
-          {/* <HeaderImage img={ImagePath}></HeaderImage> */}
+          {/* <HeaderImage></HeaderImage> */}
           {/* <Title> justBook </Title> */}
           <CustomButton
           text="Add Booking"
           textColor="#01d1e5"
           backgroundColor="lavenderblush"
+          // borderColor="black"
           />
           <CustomButton
           text="Add Customer"
@@ -43,7 +44,6 @@ font-weight: 500;
 color: palevioletred;
 `;
 
-// const HeaderImage = styled.HeaderImage`
-// // flex: 0.3;
+// const HeaderImage = styled.div`
 // background-image: url(${myImage});
 // `;
