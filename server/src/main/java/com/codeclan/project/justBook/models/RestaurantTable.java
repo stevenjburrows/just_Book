@@ -1,35 +1,46 @@
-package com.codeclan.project.justBook.Entity;
+package com.codeclan.project.justBook.models;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Document
-public class Table {
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name="tables")
+public class RestaurantTable {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private Integer number;
+    @Column
     private Integer numberOfSeats;
+    @Column
     private String type;
+    @Column
     private boolean isBooked;
+    @JsonBackReference
+    @OneToMany(mappedBy="table", fetch = FetchType.LAZY)
+    private List<Booking> bookings;
 
-    public Table(Integer number, Integer numberOfSeats, String type) {
-        this.id = new ObjectId().toString();
+    public RestaurantTable(Integer number, Integer numberOfSeats, String type) {
         this.number = number;
         this.numberOfSeats = numberOfSeats;
         this.type = type;
         this.isBooked = false;
+        this.bookings = new ArrayList<Booking>();
     }
 
-    public Table() {
+    public RestaurantTable() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

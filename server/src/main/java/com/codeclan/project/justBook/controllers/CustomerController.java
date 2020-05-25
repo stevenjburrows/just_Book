@@ -1,7 +1,8 @@
-package com.codeclan.project.justBook.Controller;
+package com.codeclan.project.justBook.controllers;
 
-import com.codeclan.project.justBook.DAO.CustomerRepository;
-import com.codeclan.project.justBook.Entity.Customer;
+import com.codeclan.project.justBook.models.RestaurantTable;
+import com.codeclan.project.justBook.repositories.CustomerRepository;
+import com.codeclan.project.justBook.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,19 +15,20 @@ import java.util.List;
 @RequestMapping("/customers")
 public class CustomerController {
 
-
     @Autowired
     CustomerRepository customerRepository;
 
     @GetMapping
-    public Collection<Customer> getCustomers() {
-        return customerRepository.findAll();
+    public ResponseEntity<List<Customer>> getCustomers() {
+        List<Customer> foundCustomers = customerRepository.findAll();
+        return new ResponseEntity<List<Customer>>(foundCustomers, HttpStatus.OK);
     }
 
-    //    @PostMapping
-//    public Customer postCustomer(@RequestBody Customer customer){
-//        return customerService.createCustomer(customer);
-//    }
+    @GetMapping(value = "/{id}")
+    public ResponseEntity getCustomer(@PathVariable Long id){
+        return new ResponseEntity<>(customerRepository.findById(id), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Customer> postBooking(@RequestBody Customer customer) {
         customerRepository.save(customer);
@@ -34,16 +36,13 @@ public class CustomerController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Customer> putCustomer(@RequestBody Customer customer, @PathVariable String id){
-//        if ( !id.equals(customer.getId())){
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
+    public ResponseEntity<Customer> putCustomer(@RequestBody Customer customer, @PathVariable Long id){
         customerRepository.save(customer);
         return new ResponseEntity<>(customer, HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<List<Customer>> deleteCustomer(@PathVariable String id){
+    public ResponseEntity<List<Customer>> deleteCustomer(@PathVariable Long id){
         customerRepository.deleteById(id);
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }

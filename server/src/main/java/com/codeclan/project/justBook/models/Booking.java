@@ -1,24 +1,32 @@
-package com.codeclan.project.justBook.Entity;
+package com.codeclan.project.justBook.models;
 
+import javax.persistence.*;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
+@Entity
+@Table(name="bookings")
 public class Booking {
 
     @Id
-    private String id;
-    private Customer customer;
-    private Table table;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String partyName;
+    @Column
     private int partySize;
+    @Column
     private String date;
+    @Column
     private String start;
+    @Column
     private String end;
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable=false)
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name="table_id", nullable=false)
+    private RestaurantTable table;
 
-
-    public Booking(Customer customer, Table table, String partyName, int partySize, String date, String start, String end) {
+    public Booking(Customer customer, RestaurantTable table, String partyName, int partySize, String date, String start, String end) {
         this.customer = customer;
         this.table = table;
         this.partyName = partyName;
@@ -39,11 +47,11 @@ public class Booking {
         this.date = date;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -55,11 +63,11 @@ public class Booking {
         this.customer = customer;
     }
 
-    public Table getTable() {
+    public RestaurantTable getTable() {
         return table;
     }
 
-    public void setTable(Table table) {
+    public void setTable(RestaurantTable table) {
         this.table = table;
     }
 

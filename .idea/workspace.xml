@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c85f1f2-7ceb-4a1b-ae01-61afc8cea57e" name="Default Changelist" comment="" />
+    <list default="true" id="0c85f1f2-7ceb-4a1b-ae01-61afc8cea57e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/Controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/controllers/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/Controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/Controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/controllers/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/DAO/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/repositories/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/DAO/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/repositories/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/DAO/TableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/repositories/TableRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/Entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/models/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/Entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/Entity/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/models/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/codeclan/project/justBook/components/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

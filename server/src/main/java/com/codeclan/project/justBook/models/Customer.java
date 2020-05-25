@@ -1,25 +1,32 @@
-package com.codeclan.project.justBook.Entity;
+package com.codeclan.project.justBook.models;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
+import javax.persistence.Table;
 
-@Document
+@Entity
+@Table(name="customers")
 public class Customer {
 
     @Id
-    private String id;
-    private List<String> bookings;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String name;
+    @Column
     private String allergies;
+    @Column
     private String notes;
+    @Column
     private Integer visits;
+    @JsonBackReference
+    @OneToMany(mappedBy="customer", fetch = FetchType.LAZY)
+    private List<Booking> bookings;
 
     public Customer(String name, String allergies, String notes) {
-        this.id = new ObjectId().toString();
         this.name = name;
         this.allergies = allergies;
         this.notes = notes;
@@ -30,27 +37,19 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String id, String name, String allergies, String notes) {
-        this.id = id;
-        this.name = name;
-        this.allergies = allergies;
-        this.notes = notes;
-        this.bookings = new ArrayList<>();
-    }
-
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public List<String> getBookings() {
+    public List<Booking> getBookings() {
         return bookings;
     }
 
-    public void setBookings(List<String> bookings) {
+    public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
     }
 
@@ -86,7 +85,7 @@ public class Customer {
         this.visits = visits;
     }
 
-    public void addBooking(String booking){
+    public void addBooking(Booking booking){
         bookings.add(booking);
     }
 }
