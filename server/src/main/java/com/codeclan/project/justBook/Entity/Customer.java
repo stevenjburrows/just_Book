@@ -5,13 +5,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Document
 public class Customer {
 
     @Id
     private String id;
-    private ArrayList<String> bookings;
+    private List<String> bookings;
     private String name;
     private String allergies;
     private String notes;
@@ -22,11 +23,19 @@ public class Customer {
         this.name = name;
         this.allergies = allergies;
         this.notes = notes;
-        this.visits = 0;
         this.bookings = new ArrayList<>();
+        this.visits = 0;
     }
 
     public Customer() {
+    }
+
+    public Customer(String id, String name, String allergies, String notes) {
+        this.id = id;
+        this.name = name;
+        this.allergies = allergies;
+        this.notes = notes;
+        this.bookings = new ArrayList<>();
     }
 
     public String getId() {
@@ -37,11 +46,11 @@ public class Customer {
         this.id = id;
     }
 
-    public ArrayList<String> getBookings() {
+    public List<String> getBookings() {
         return bookings;
     }
 
-    public void setBookings(ArrayList<String> bookings) {
+    public void setBookings(List<String> bookings) {
         this.bookings = bookings;
     }
 
@@ -77,7 +86,7 @@ public class Customer {
         this.visits = visits;
     }
 
-    public void addBooking(String bookingId){
-        bookings.add(bookingId);
+    public void addBooking(String booking){
+        bookings.add(booking);
     }
 }

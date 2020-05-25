@@ -1,60 +1,42 @@
 package com.codeclan.project.justBook.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.bson.types.ObjectId;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Document
 public class Booking {
+
     @Id
     private String id;
-    @JsonBackReference
     private Customer customer;
-    @JsonBackReference
     private Table table;
     private String partyName;
     private int partySize;
+    private String date;
     private String start;
     private String end;
-    private Date startDate;
-    private Date endDate;
 
 
-    public Booking(Customer customer, Table table, String partyName, int partySize, String start, String end) throws ParseException {
-        this.id = new ObjectId().toString();
+    public Booking(Customer customer, Table table, String partyName, int partySize, String date, String start, String end) {
         this.customer = customer;
         this.table = table;
         this.partyName = partyName;
         this.partySize = partySize;
+        this.date = date;
         this.start = start;
         this.end = end;
-//        this.startDate = new SimpleDateFormat("HH:mm dd-MM-yyyy").parse(start);
-//        this.endDate = new SimpleDateFormat("HH:mm dd-MM-yyyy").parse(end);
     }
 
     public Booking() {
     }
 
-    public String getStart() {
-        return start;
+    public String getDate() {
+        return date;
     }
 
-    public void setStart(String start) {
-        this.start = start;
-    }
-
-    public String getEnd() {
-        return end;
-    }
-
-    public void setEnd(String end) {
-        this.end = end;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getId() {
@@ -97,19 +79,19 @@ public class Booking {
         this.partySize = partySize;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public String getStart() {
+        return start;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStart(String start) {
+        this.start = start;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public String getEnd() {
+        return end;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setEnd(String end) {
+        this.end = end;
     }
 }

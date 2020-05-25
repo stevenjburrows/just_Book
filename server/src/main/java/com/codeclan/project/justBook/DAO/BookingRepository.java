@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface BookingRepository extends MongoRepository<Booking, String> {
     List<Booking> findByCustomerName(String name);
+    List<Booking> findByDate(String date);
 }
