@@ -12,8 +12,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 @Component
 public class DataLoader implements ApplicationRunner {
+
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
 
     @Autowired
     private TableRepository tableRepository;
@@ -22,7 +27,7 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     private BookingRepository bookingRepository;
 
-    public void run(ApplicationArguments args){
+    public void run(ApplicationArguments args) throws ParseException {
         tableRepository.deleteAll();
         customerRepository.deleteAll();
         bookingRepository.deleteAll();
@@ -33,9 +38,7 @@ public class DataLoader implements ApplicationRunner {
         Table table1 = new Table(1, 4, "Booth");
         tableRepository.save(table1);
 
-        Booking booking1 = new Booking(customer1, table1, "Party!", 3, null, null);
+        Booking booking1 = new Booking(customer1, table1, "Party!", 3, "12-06-2020", "14:00", "16:00");
         bookingRepository.save(booking1);
-        customer1.addBooking(booking1.getId());
-        customerRepository.save(customer1);
     }
 }
