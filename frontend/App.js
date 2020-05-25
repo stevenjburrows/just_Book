@@ -68,37 +68,3 @@ class App extends Component {
 }
 
 export default App;
-
-// import 'react-native-gesture-handler';
-// import * as React from 'react';
-// import { NavigationContainer } from '@react-navigation/native';
-// import {Tile} from 'react-native-elements';
-// import { SafeAreaView, Text } from 'react-native';
-// import myImage from './assets/justBook.jpg';
-// import styled from 'styled-components';
-// import {Tile} from 'react-native-elements';
-// import Home from './components/HomeScreen';
-// import myImage from './assets/justBook.jpg';
-
-// function HomeScreen() {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Text>Home Screen</Text>
-//     </View>
-//   );
-// }
-
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <NavigationContainer>
-//         <Stack.Navigator>
-//           <Stack.Screen name="Home" component={HomeScreen} />
-//             <SafeAreaView>
-//               <Home></Home>
-//             </SafeAreaView>
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     )
-//   }
-// }
