@@ -29,11 +29,12 @@ class ManageCustomers extends Component {
     return (
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
 
+
       <Button
         title="Add Customer"
         onPress={() => this.props.navigation.navigate("AddCustomer")}
       />
-
+      
         <Text>Manage Customers</Text>
         {
           this.state.customers.map((customer) => (
