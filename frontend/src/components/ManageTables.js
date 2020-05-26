@@ -37,13 +37,3 @@ class ManageTables extends Component {
 
 export default ManageTables;
 
-// const ManageTables = (props) => {
-//   return (
-//     <>
-//       <Text>Manage Tables</Text>
-//       {props.allTables.map((booking) => (
-//         <Table>{table.name}</Table>
-//       ))}
-//     </>
-//   );
-// };

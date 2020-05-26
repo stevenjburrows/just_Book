@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
 import Request from '../helpers/Request.js';
 import Customer from '../containers/Customer';
-
 
 class ManageCustomers extends Component {
   constructor(props) {
@@ -24,12 +23,19 @@ class ManageCustomers extends Component {
   render() {
     return (
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+
+      <Button 
+        title="Add Customer"
+        onPress={() => navigation.navigate("AddCustomer")}
+      />
+
         <Text>Manage Customers</Text>
         {
           this.state.customers.map((customer) => (
             <Customer key={customer.id} customer={customer}></Customer>
           ))
         }
+
       </View >
     )
   }
