@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { Text, View, Button } from "react-native";
-// import myImage from "./assets/justBook.jpg";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -17,6 +16,7 @@ const HomeScreen = ({ navigation }) => {
         title="Manage Tables"
         onPress={() => navigation.navigate("ManageTables")}
       />
+      
       <Button
         title="Manage Customers"
         onPress={() => navigation.navigate("ManageCustomers")}

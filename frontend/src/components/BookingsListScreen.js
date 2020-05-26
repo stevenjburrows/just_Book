@@ -19,3 +19,4 @@ function BookingListScreen() {
       </NavigationContainer>
     );
   }
+}
