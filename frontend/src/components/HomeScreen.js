@@ -1,9 +1,12 @@
 import * as React from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, Image } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+      <Image style={{ flex: 5}}
+        source={require('../../assets/JustBook.jpg')}
+      />
       <Text>justBook</Text>
 
       <Button

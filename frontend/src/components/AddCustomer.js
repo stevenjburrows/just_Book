@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Form } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+import { Formik } from 'formik';
+
 
 
 class AddCustomer extends Component {
@@ -16,14 +18,26 @@ class AddCustomer extends Component {
 
   render(){
     return(
-          <View style={styles.customerForm}>
-            <Text style={styles.header}>Add Customer</Text>
-            <TextInput placeholder="Customer Name"></TextInput>
-            {/* <FormLabel>Name</FormLabel>
-            <FormInput onChangeText={console.log()}/>
-            <FormValidationMessage>Error message</FormValidationMessage> */}
-          </View>
-      )
+          // <View style={styles.customerForm}>
+          //   <Text style={styles.header}>Add Customer</Text>
+
+          <Formik
+          initialValues={{ email: '' }}
+          onSubmit={values => console.log(values)}
+          >
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <View>
+              <TextInput
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+              />
+              <Button onPress={handleSubmit} title="Submit" />
+            </View>
+          )}
+        </Formik>
+      );
+      
   }
 }
 
