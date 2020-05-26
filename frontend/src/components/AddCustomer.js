@@ -5,6 +5,7 @@ import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elemen
 class AddCustomer extends Component {
 
   constructor(props){
+    // console.log("ManageCustomers:", props.navigate)
     super(props);
     this.state = {
       name: "",
@@ -17,16 +18,13 @@ class AddCustomer extends Component {
     return(
           <View>
             <Text>Add Customer component</Text>
-            
-            <FormLabel>Name</FormLabel>
-            <FormInput onChangeText={someFunction}/>
-            <FormValidationMessage>Error message</FormValidationMessage>
+
           </View>
       )
   }
-
-
-
 }
+
+
+
 
 export default AddCustomer;
