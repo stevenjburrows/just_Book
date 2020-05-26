@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
-
-
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 
 class AddCustomer extends Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -19,9 +18,9 @@ class AddCustomer extends Component {
           <View>
             <Text>Add Customer component</Text>
             
-            {/* <FormLabel>Name</FormLabel>
+            <FormLabel>Name</FormLabel>
             <FormInput onChangeText={someFunction}/>
-            <FormValidationMessage>Error message</FormValidationMessage> */}
+            <FormValidationMessage>Error message</FormValidationMessage>
           </View>
       )
   }

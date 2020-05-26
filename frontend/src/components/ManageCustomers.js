@@ -5,6 +5,7 @@ import Customer from '../containers/Customer';
 
 class ManageCustomers extends Component {
   constructor(props) {
+    // console.log("ManageCustomers:", props.navigate)
     super(props);
     this.state = {
       customers: []
@@ -20,13 +21,17 @@ class ManageCustomers extends Component {
       })
   }
 
+  // handleFormInput(formData)(
+  //   .then my api call
+  // )
+
   render() {
     return (
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
 
-      <Button 
+      <Button
         title="Add Customer"
-        onPress={() => navigation.navigate("AddCustomer")}
+        onPress={() => this.props.navigation.navigate("AddCustomer")}
       />
 
         <Text>Manage Customers</Text>
