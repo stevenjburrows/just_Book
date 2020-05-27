@@ -4,50 +4,23 @@ import { Formik } from 'formik';
 
 const AddBookingForm = (props) => {
 
-    console.log(props);
+    console.log(props.Customer);
 return(
     
     <View>
-           <Formik
+    <Formik
     initialValues={{ name: '', allergies: '', notes: '' }}
     onSubmit={(values, actions) => {
-        actions.resetForm()
-        addCustomer(values);
+        actions.resetForm();
+        addBooking(values);
     }}
-    >
-      {(props) => (
-        <View>
+    ></Formik>
 
-            
-          <TextInput
-          placeholder="Customer Name"
-          onChangeText={props.handleChange('name')}
-          value={props.values.title}
-          style={styles.input}
-          />
-          <TextInput
-          multiline
-          placeholder="Allergies"
-          onChangeText={props.handleChange('allergies')}
-          value={props.values.body}
-          style={styles.input}
-          />
-          <TextInput
-          placeholder="Notes"
-          onChangeText={props.handleChange('notes')}
-          value={props.values.rating}
-          style={styles.input}
-          // keyboardType='numeric'
-          />
 
-          <Button title='submit' color='blue' onPress={props.handleSubmit} />
+ 
+      
         </View>
       )
-      }
-        </Formik>
-    </View>
-
-)
 }
 
 const styles = StyleSheet.create({

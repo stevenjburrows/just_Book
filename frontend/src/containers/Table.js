@@ -7,7 +7,8 @@ const Table = (props) => {
     <>
       <Text style={styles.tableinfo}>Table Number: {props.table.number}</Text>
       <Text style={styles.tableinfo}>No of Seats: {props.table.numberOfSeats}</Text>
-      <Text style={styles.tableinfo}>Type: {props.table.type}</Text>
+      <Text style={styles.tableinfo}>Type: {props.table.type}
+      ~{"\n"} </Text>
     </>
   )
 }
