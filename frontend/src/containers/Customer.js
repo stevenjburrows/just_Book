@@ -1,31 +1,38 @@
-import React from 'react';
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from 'semantic-ui-react';
 
 const Customer = (props) => {
   return (
-    <>
-      <Text style={styles.customerInfo}>Name: {props.customer.name}</Text>
-      <Text style={styles.customerInfo}>Visits: {props.customer.visits}</Text>
-      <Text style={styles.customerInfo}>Notes: {props.customer.notes}</Text>
-    </>
-  )
-}
+    <View>
+      <View
+        style={{
+          borderBottomColor: "black",
+          borderBottomWidth: 2,
+        }}
+      />
+      <Text style={styles.customerinfo}>Name: {props.customer.name}</Text>
+      <Text style={styles.customerinfo}>Visits: {props.customer.visits}</Text>
+      <Text style={styles.customerinfo}>Notes: {props.customer.notes}</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  customerInfo: {
-    fontSize: 18,
-    alignSelf: 'stretch',
+  customerinfo: {
+    fontSize: 20,
+    alignSelf: "stretch",
     height: 40,
-    paddingTop: 10,
-    textAlign: 'center',
-    color: '#000000',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderBottomColor: '#000000',
-    borderBottomWidth: 0.5,
-    justifyContent: 'center'
-  }
-})
+    paddingTop: 5,
+    textAlign: "center",
+    color: "#000000",
+    justifyContent: "center",
+  },
+
+  applyLine: {
+    borderBottomColor: "#000000",
+    borderBottomWidth: 1,
+  },
+});
 
 export default Customer;

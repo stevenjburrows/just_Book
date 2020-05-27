@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Text, View, Button, StyleSheet } from "react-native";
-import Request from '../helpers/Request.js';
-import Table from '../containers/Table.js';
-import { ScrollView } from 'react-native-gesture-handler';
-
+import Request from "../helpers/Request.js";
+import Table from "../containers/Table.js";
+import { ScrollView } from "react-native-gesture-handler";
 
 class ManageTables extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tables: []
-    }
+      tables: [],
+    };
     this.fetchTables = this.fetchTables.bind(this);
   }
 
-  fetchTables(){
+  fetchTables() {
     const request = new Request();
     request.get('http://localhost:8080/tables')
       .then((data) => {
@@ -35,7 +34,6 @@ class ManageTables extends Component {
 
   render() {
     return (
-
       <ScrollView>
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
         <Button
@@ -57,14 +55,14 @@ class ManageTables extends Component {
         }
       </View >
       </ScrollView>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   header: {
     fontSize: 24,
-}})
+  },
+});
 
 export default ManageTables;
-

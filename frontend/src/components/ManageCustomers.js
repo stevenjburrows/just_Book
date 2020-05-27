@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import { Text, View, Button, ScrollView } from "react-native";
-import Request from '../helpers/Request.js';
-import Customer from '../containers/Customer';
+import { Text, View, Button, ScrollView, StyleSheet } from "react-native";
+import Request from "../helpers/Request.js";
+import Customer from "../containers/Customer";
 
 class ManageCustomers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      customers: []
-    }
+      customers: [],
+    };
     this.fetchCustomers = this.fetchCustomers.bind(this);
     this.deleteCustomer = this.deleteCustomer.bind(this);
   }
 
-  fetchCustomers(){
+  fetchCustomers() {
     const request = new Request();
     request.get('http://localhost:8080/customers')
       .then((data) => {
@@ -35,7 +35,7 @@ class ManageCustomers extends Component {
   render() {
     return (
       < ScrollView style={{ flex: 2 }}>
-        <View style={{alignItems: "center", justifyContent: "center"}}>
+        <View style={{flex: 2, alignItems: "center", justifyContent: "center"}}>
 
         <Button
           title="Add Customer"
@@ -56,10 +56,19 @@ class ManageCustomers extends Component {
           ))
         }
         </View>
-
-      </ScrollView >
-    )
+      </ScrollView>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  backdrop: {
+    backgroundColor: "#FCB1A6",
+  },
+
+  header: {
+    fontSize: 24,
+  },
+});
 
 export default ManageCustomers;
