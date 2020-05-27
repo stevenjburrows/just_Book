@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
 import Request from '../helpers/Request.js';
 import Table from '../containers/Table.js';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 class ManageTables extends Component {
@@ -10,9 +11,10 @@ class ManageTables extends Component {
     this.state = {
       tables: []
     }
+    this.fetchTables = this.fetchTables.bind(this);
   }
 
-  componentDidMount() {
+  fetchTables(){
     const request = new Request();
 
     request.get('http://localhost:8080/tables')
@@ -20,10 +22,20 @@ class ManageTables extends Component {
         this.setState({ tables: data })
       })
   }
+  
+  componentDidMount() {
+    this.fetchTables();
+  }
 
   render() {
     return (
+
+      <ScrollView>
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+        <Button
+          title="Add Table"
+          onPress={() => this.props.navigation.navigate("AddTable", {fetchTables: this.fetchTables})}
+        />
         <Text>Manage Tables</Text>
         {
           this.state.tables.map((table) => (
@@ -31,6 +43,7 @@ class ManageTables extends Component {
           ))
         }
       </View >
+      </ScrollView>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, ScrollView } from "react-native";
 import Request from '../helpers/Request.js';
 import Customer from '../containers/Customer';
 
@@ -10,9 +10,10 @@ class ManageCustomers extends Component {
     this.state = {
       customers: []
     }
+    this.fetchCustomers = this.fetchCustomers.bind(this);
   }
 
-  componentDidMount() {
+  fetchCustomers(){
     const request = new Request();
 
     request.get('http://localhost:8080/customers')
@@ -21,15 +22,19 @@ class ManageCustomers extends Component {
       })
   }
 
+  componentDidMount() {
+    this.fetchCustomers();
+  }
+
   render() {
     return (
-      < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+      < ScrollView style={{ flex: 2 }}>
+        <View style={{alignItems: "center", justifyContent: "center"}}>
 
-
-      <Button
-        title="Add Customer"
-        onPress={() => this.props.navigation.navigate("AddCustomer")}
-      />
+        <Button
+          title="Add Customer"
+          onPress={() => this.props.navigation.navigate("AddCustomer", {fetchCustomers: this.fetchCustomers})}
+        />
       
         <Text>Manage Customers</Text>
         {
@@ -37,8 +42,9 @@ class ManageCustomers extends Component {
             <Customer key={customer.id} customer={customer}></Customer>
           ))
         }
+        </View>
 
-      </View >
+      </ScrollView >
     )
   }
 }

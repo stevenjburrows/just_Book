@@ -2,35 +2,36 @@ import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
 import { Formik } from 'formik';
 
-export default function AddCustomerForm( { addCustomer } ) {
+function AddTableForm( {addTable} ) {
 
 return(
     <View style={StyleSheet.create}>
     <Formik
-    initialValues={{ name: '', allergies: '', notes: '' }}
+    initialValues={{ number: null, numberOfSeats: null, type: '' }}
     onSubmit={(values, actions) => {
         actions.resetForm()
-        addCustomer(values);
+        addTable(values);
     }}
     >
       {(props) => (
-        <View>
+        <View style={StyleSheet.create}>
           <TextInput
-          placeholder="Customer Name"
-          onChangeText={props.handleChange('name')}
-          value={props.values.title}
+          style={StyleSheet.create}
+          placeholder="Table Number"
+          onChangeText={props.handleChange('number')}
+          value={props.values.number}
+          keyboardType='numeric'
           />
           <TextInput
-          multiline
-          placeholder="Allergies"
-          onChangeText={props.handleChange('allergies')}
-          value={props.values.body}
+          placeholder="Number of Seats"
+          onChangeText={props.handleChange('numberOfSeats')}
+          value={props.values.numberOfSeats}
+          keyboardType='numeric'
           />
           <TextInput
-          placeholder="Notes"
-          onChangeText={props.handleChange('notes')}
-          value={props.values.rating}
-          // keyboardType='numeric'
+          placeholder="Type"
+          onChangeText={props.handleChange('type')}
+          value={props.values.type}
           />
 
           <Button title='submit' color='blue' onPress={props.handleSubmit} />
@@ -53,3 +54,5 @@ const styles = StyleSheet.create({
       fontSize:18,
       borderRadius: 6,
     }});
+
+    export default AddTableForm;

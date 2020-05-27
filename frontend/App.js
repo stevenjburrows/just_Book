@@ -8,6 +8,7 @@ import ManageBookings from "./src/components/ManageBookings";
 import ManageTables from "./src/components/ManageTables";
 import ManageCustomers from "./src/components/ManageCustomers";
 import AddCustomer from "./src/components/AddCustomer";
+import AddTable from "./src/components/AddTable"
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,8 @@ class App extends Component {
           <Stack.Screen name="ManageTables" component={ManageTables} options={{ title: "Manage Tables" }} />
           <Stack.Screen name="ManageCustomers" component={ManageCustomers} options={{ title: "Manage Customers" }} />
           <Stack.Screen name="AddCustomer" component={AddCustomer} options={{ title: "Add Customer"}} />  
+          <Stack.Screen name="AddTable" component={AddTable} options={{ title: "Add Table"}} />
+          <Stack.Screen name="AddBooking" component={AddBooking} options ={{title: "Add Booking"}}/>
         </Stack.Navigator>
       </NavigationContainer >
     );
