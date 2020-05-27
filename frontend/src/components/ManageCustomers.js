@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Button, ScrollView, StyleSheet } from "react-native";
+import { Text, View, Button, ScrollView, StyleSheet} from "react-native";
 import Request from "../helpers/Request.js";
 import Customer from "../containers/Customer";
 
@@ -34,8 +34,8 @@ class ManageCustomers extends Component {
 
   render() {
     return (
-      < ScrollView style={{ flex: 2 }}>
-        <View style={{flex: 2, alignItems: "center", justifyContent: "center"}}>
+      < ScrollView style={styles.bg}>
+        <View style={{flex: 2, alignItems: "center", justifyContent: "center"}} >
 
         <Button
           title="Add Customer"
@@ -68,6 +68,16 @@ const styles = StyleSheet.create({
 
   header: {
     fontSize: 24,
+  },
+
+  image: {
+    flex: 1,
+    resizeMode: "stretch",
+    justifyContent: "center"
+  },
+
+  bg: {
+    backgroundColor: "#E3EFF2",
   },
 });
 

@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 export default function AddCustomerForm( { addCustomer } ) {
 
 return(
-    <View style={StyleSheet.create}>
+    <View style={styles.bg}>
     <Formik
     initialValues={{ name: '', allergies: '', notes: '', visits: 0 }}
     onSubmit={(values, actions) => {
@@ -14,7 +14,7 @@ return(
     }}
     >
       {(props) => (
-        <View>
+        <View style={StyleSheet.create}>
           <TextInput
           placeholder="Customer Name"
           onChangeText={props.handleChange('name')}
@@ -54,4 +54,9 @@ const styles = StyleSheet.create({
       margin: 24,
       fontSize:18,
       borderRadius: 6,
-    }});
+    },
+
+    bg: {
+      backgroundColor: "#E3EFF2",
+    }
+  });

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Button, Image, StyleSheet, Animated } from "react-native";
+import { Text, View, Button, StyleSheet, Animated } from "react-native";
 
 class ImageLoader extends Component {
   state = {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
 
   bg: {
-    backgroundColor: "#C1DBE3",
+    backgroundColor: "#E3EFF2",
     flex: 2,
     alignItems: "center",
     justifyContent: "center",

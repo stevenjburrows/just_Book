@@ -20,6 +20,7 @@ const AddBookingForm = (props) => {
   });
 
   return (
+    <View style={styles.bg}>
     <Formik
       initialValues={{
         partyName: "",
@@ -92,6 +93,8 @@ const AddBookingForm = (props) => {
         </View>
       )}
     </Formik>
+    </View>
+
   );
 };
 

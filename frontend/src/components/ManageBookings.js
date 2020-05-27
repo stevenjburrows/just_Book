@@ -34,7 +34,7 @@ class ManageBookings extends Component {
 
   render() {
     return (
-      <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+      <View style={styles.bg}>
         <Button
           title="Add Booking"
           onPress={() =>
@@ -78,9 +78,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  bg: {
+    backgroundColor: "#E3EFF2",
+    flex: 2, 
+    alignItems: "center", 
+  },
+
   header: {
     fontSize: 24,
   },
+
+  
 });
 
 export default ManageBookings;

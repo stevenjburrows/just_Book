@@ -34,6 +34,7 @@ class AddCustomer extends Component {
 const styles = StyleSheet.create({
   customerForm: {
     alignSelf: 'stretch',
+    backgroundColor: '#E3EFF2'
   },
 
   header: {

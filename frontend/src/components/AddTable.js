@@ -34,6 +34,8 @@ class AddTable extends Component {
 const styles = StyleSheet.create({
 form: {
   alignSelf: 'stretch',
+  backgroundColor: "#E3EFF2",
+  flex: 1,
 },
 
 header: {

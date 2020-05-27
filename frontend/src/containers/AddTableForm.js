@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 function AddTableForm( {addTable} ) {
 
 return(
-    <View style={StyleSheet.create}>
+    <View style={styles.bg}>
     <Formik
     initialValues={{ number: null, numberOfSeats: null, type: '' }}
     onSubmit={(values, actions) => {
@@ -56,6 +56,12 @@ const styles = StyleSheet.create({
     margin: 24,
     fontSize:18,
     borderRadius: 6,
-  }});
+  },
+
+    bg: {
+      backgroundColor: "#E3EFF2",
+      flex: 1
+    }
+  });
 
     export default AddTableForm;

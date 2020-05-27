@@ -34,7 +34,7 @@ class ManageTables extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.bg}>
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
         <Button
           title="Add Table"
@@ -60,8 +60,16 @@ class ManageTables extends Component {
 }
 
 const styles = StyleSheet.create({
+  backdrop: {
+    backgroundColor: "#FCB1A6",
+  },
+
   header: {
     fontSize: 24,
+  },
+
+  bg: {
+    backgroundColor: "#E3EFF2"
   },
 });
 

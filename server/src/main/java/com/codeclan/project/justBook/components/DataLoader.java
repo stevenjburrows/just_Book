@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner {
 
         Customer customer1 = new Customer("Daniel", "none", "none");
         customerRepository.save(customer1);
-
+        
         RestaurantTable table1 = new RestaurantTable(1, 4, "Booth");
         tableRepository.save(table1);
 
