@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, StyleSheet } from "react-native";
 import Request from '../helpers/Request.js';
 import Table from '../containers/Table.js';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -36,7 +36,7 @@ class ManageTables extends Component {
           title="Add Table"
           onPress={() => this.props.navigation.navigate("AddTable", {fetchTables: this.fetchTables})}
         />
-        <Text>Manage Tables</Text>
+        <Text style={styles.header}>Manage Tables</Text>
         {
           this.state.tables.map((table) => (
             <Table key={table.id} table={table}></Table>
@@ -47,6 +47,11 @@ class ManageTables extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 24,
+}})
 
 export default ManageTables;
 

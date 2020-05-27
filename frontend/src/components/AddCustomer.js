@@ -44,6 +44,11 @@ const styles = StyleSheet.create({
     borderBottomColor: '#199187',
     borderBottomWidth: 1
   },
+  
+  inputBox: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray'
+  }
 });
 
 export default AddCustomer;

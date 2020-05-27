@@ -19,17 +19,20 @@ return(
           placeholder="Customer Name"
           onChangeText={props.handleChange('name')}
           value={props.values.title}
+          style={styles.input}
           />
           <TextInput
           multiline
           placeholder="Allergies"
           onChangeText={props.handleChange('allergies')}
           value={props.values.body}
+          style={styles.input}
           />
           <TextInput
           placeholder="Notes"
           onChangeText={props.handleChange('notes')}
           value={props.values.rating}
+          style={styles.input}
           // keyboardType='numeric'
           />
 
@@ -43,13 +46,13 @@ return(
 )}
 
 const styles = StyleSheet.create({
-    inout: {
+    input: {
       alignItems: "center", 
       justifyContent: "center",
       textAlign: 'center',
       borderWidth: 1,
       borderColor: '#ddd',
-      padding: 10,
+      margin: 24,
       fontSize:18,
       borderRadius: 6,
     }});

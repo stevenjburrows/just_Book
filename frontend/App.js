@@ -9,6 +9,7 @@ import ManageTables from "./src/components/ManageTables";
 import ManageCustomers from "./src/components/ManageCustomers";
 import AddCustomer from "./src/components/AddCustomer";
 import AddTable from "./src/components/AddTable"
+import AddBooking from "./src/components/AddBooking"
 
 const Stack = createStackNavigator();
 
