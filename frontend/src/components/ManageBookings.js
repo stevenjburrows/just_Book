@@ -11,6 +11,7 @@ class ManageBookings extends Component {
       bookings: [],
     }
     this.fetchBookings = this.fetchBookings.bind(this);
+    this.deleteBooking = this.deleteBooking.bind(this);
   }
 
   fetchBookings(){
@@ -19,6 +20,13 @@ class ManageBookings extends Component {
       .then((data) => {
         this.setState({ bookings: data })
       })
+  }
+
+  deleteBooking(id){
+    const request = new Request();
+    const url = 'http://localhost:8080/bookings/' + id;
+    request.delete(url)
+      .then(() => this.fetchBookings())
   }
 
   componentDidMount() {
@@ -37,7 +45,14 @@ class ManageBookings extends Component {
         <Text>Manage Bookings</Text>
         {
           this.state.bookings.map((booking) => (
-            <Booking key={booking.id} booking={booking}></Booking>
+            <View key={booking.id + 1000}>
+              <Booking key={booking.id + 10000} booking={booking}></Booking>
+              <Button
+                title="Delete"
+                key={booking.id}
+                onPress={() => this.deleteBooking(booking.id)}
+                />
+            </View>  
           ))
         }
       </View >

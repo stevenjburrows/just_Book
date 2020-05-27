@@ -5,21 +5,27 @@ import Customer from '../containers/Customer';
 
 class ManageCustomers extends Component {
   constructor(props) {
-    // console.log("ManageCustomers:", props.navigate)
     super(props);
     this.state = {
       customers: []
     }
     this.fetchCustomers = this.fetchCustomers.bind(this);
+    this.deleteCustomer = this.deleteCustomer.bind(this);
   }
 
   fetchCustomers(){
     const request = new Request();
-
     request.get('http://localhost:8080/customers')
       .then((data) => {
         this.setState({ customers: data })
       })
+  }
+
+  deleteCustomer(id){
+    const request = new Request();
+    const url = 'http://localhost:8080/customers/' + id;
+    request.delete(url)
+      .then(() => this.fetchCustomers())
   }
 
   componentDidMount() {
@@ -39,7 +45,14 @@ class ManageCustomers extends Component {
         <Text>Manage Customers</Text>
         {
           this.state.customers.map((customer) => (
-            <Customer key={customer.id} customer={customer}></Customer>
+            <View key={customer.id + 1000}>
+              <Customer key={customer.id + 10000} customer={customer}></Customer>
+              <Button
+                title="Delete"
+                key={customer.id}
+                onPress={() => this.deleteCustomer(customer.id)}
+                />
+            </View>
           ))
         }
         </View>

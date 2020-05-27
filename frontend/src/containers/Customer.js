@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from "react-native";
+import { Button } from 'semantic-ui-react';
 
 const Customer = (props) => {
-  console.log(props);
   return (
     <>
       <Text style={styles.customerInfo}>Name: {props.customer.name}</Text>

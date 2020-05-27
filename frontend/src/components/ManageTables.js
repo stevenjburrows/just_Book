@@ -16,11 +16,17 @@ class ManageTables extends Component {
 
   fetchTables(){
     const request = new Request();
-
     request.get('http://localhost:8080/tables')
       .then((data) => {
         this.setState({ tables: data })
       })
+  }
+
+  deleteTable(id){
+    const request = new Request();
+    const url = 'http://localhost:8080/tables/' + id;
+    request.delete(url)
+      .then(() => this.fetchTables())
   }
   
   componentDidMount() {
@@ -39,7 +45,14 @@ class ManageTables extends Component {
         <Text style={styles.header}>Manage Tables</Text>
         {
           this.state.tables.map((table) => (
-            <Table key={table.id} table={table}></Table>
+            <View key={table.id + 1000}>
+              <Table key={table.id +10000} table={table}></Table>
+              <Button
+                title="Delete"
+                key={table.id}
+                onPress={() => this.deleteTable(table.id)}
+                />
+              </View>
           ))
         }
       </View >
