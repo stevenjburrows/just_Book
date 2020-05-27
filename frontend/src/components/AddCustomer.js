@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Form } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-import { Formik } from 'formik';
+import AddCustomerForm from '../containers/AddCustomerForm'
 
-
+const addCustomer = (customer) => {
+  console.log(customer);
+}
 
 class AddCustomer extends Component {
   constructor(props){
@@ -18,26 +20,16 @@ class AddCustomer extends Component {
 
   render(){
     return(
-          // <View style={styles.customerForm}>
-          //   <Text style={styles.header}>Add Customer</Text>
+          <View style={styles.customerForm}>
+            <AddCustomerForm addCustomer={addCustomer} />
 
-          <Formik
-          initialValues={{ email: '' }}
-          onSubmit={values => console.log(values)}
-          >
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View>
-              <TextInput
-                onChangeText={handleChange('email')}
-                onBlur={handleBlur('email')}
-                value={values.email}
-              />
-              <Button onPress={handleSubmit} title="Submit" />
-            </View>
-          )}
-        </Formik>
-      );
-      
+            {/* <Text style={styles.header}>Add Customer</Text>
+            <TextInput placeholder="Customer Name"></TextInput>
+            {/* {/* <FormLabel>Name</FormLabel> */}
+            {/* <FormInput onChangeText={console.log()}/> */}
+            {/* <FormValidationMessage>Error message</FormValidationMessage> */} 
+          </View>
+      )
   }
 }
 
