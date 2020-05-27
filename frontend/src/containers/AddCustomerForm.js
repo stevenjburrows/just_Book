@@ -7,7 +7,7 @@ export default function AddCustomerForm( { addCustomer } ) {
 return(
     <View style={StyleSheet.create}>
     <Formik
-    initialValues={{ name: '', allergies: '', notes: '' }}
+    initialValues={{ name: '', allergies: '', notes: '', visits: 0 }}
     onSubmit={(values, actions) => {
         actions.resetForm()
         addCustomer(values);
@@ -33,7 +33,6 @@ return(
           onChangeText={props.handleChange('notes')}
           value={props.values.notes}
           style={styles.input}
-          // keyboardType='numeric'
           />
 
           <Button title='submit' color='blue' onPress={props.handleSubmit} />

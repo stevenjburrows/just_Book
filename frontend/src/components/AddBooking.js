@@ -10,7 +10,6 @@ class AddBooking extends Component {
             customers: [],
             tables: []
         }
-
         this.fetchCustomers = this.fetchCustomers.bind(this);
         this.fetchTables = this.fetchTables.bind(this);
         this.handleAddBooking = this.handleAddBooking.bind(this);
@@ -18,6 +17,7 @@ class AddBooking extends Component {
     
     handleAddBooking (booking) {
         const request = new Request();
+        console.log(booking);
         request.post('http://localhost:8080/bookings', booking)
         .then(() => {
           this.props.route.params.fetchBookings();

@@ -43,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.bg}>
       <ImageLoader
         style={styles.logo}
-        source={require("../../assets/justBook.jpg")}
+        source={require("../../assets/JustBook.jpg")}
       />
       <Text>Welcome.</Text>
 
