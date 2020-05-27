@@ -23,6 +23,8 @@ class AddBooking extends Component {
           this.props.route.params.fetchBookings();
           this.props.navigation.goBack() 
         });
+        console.log("this is the booking info", booking);
+        
       }
       
       fetchCustomers(){

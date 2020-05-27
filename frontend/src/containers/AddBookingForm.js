@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 import { Formik, FieldArray, Field, Form } from "formik";
 
 const AddBookingForm = (props) => {
-  console.log("this is from line 7 of add booking form", props.customers);
+  console.log("this is from line 7 of add booking form", props);
   const allCustomers = props.customers;
   const allTables = props.tables;
   const styles = StyleSheet.create({
@@ -30,16 +30,16 @@ const AddBookingForm = (props) => {
       }}
       onSubmit={(values, actions) => {
         actions.resetForm();
-        addCustomer(values);
+        props.addBooking(values);
       }}
     >
       {(props) => (
         <View>
-          <Form>
+          {/* <Form onSubmit={handleSubmit}> */}
             <label>Select Customer</label>
             <select>
               {allCustomers.map((customer) => (
-                <option key={customer.id} value={customer}>
+                <option key={customer.id} value={customer.id}>
                   {customer.name}
                 </option>
               ))}
@@ -48,7 +48,7 @@ const AddBookingForm = (props) => {
             <label>Select Table</label>
             <select>
               {allTables.map((table) => (
-                <option key={table.id} value={table}>
+                <option key={table.id} value={table.id}>
                   {table.number}
                 </option>
               ))}
@@ -87,7 +87,8 @@ const AddBookingForm = (props) => {
                 value={props.values.endTime}
 
                 />  
-          </Form>
+                <Button title='submit' color='blue' onPress={props.handleSubmit} />
+          {/* </Form> */}
         </View>
       )}
     </Formik>
