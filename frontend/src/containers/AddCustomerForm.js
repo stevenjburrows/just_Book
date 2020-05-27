@@ -5,12 +5,10 @@ import { Formik } from 'formik';
 export default function AddCustomerForm( { addCustomer } ) {
 
 return(
-    // <View style={styles.customerForm}>
-    //   <Text style={styles.header}>Add Customer</Text>
     //formik yop
     <View style={StyleSheet.create}>
     <Formik
-    initialValues={{ title: '', body: '', rating: '' }}
+    initialValues={{ name: '', allergies: '', notes: '' }}
     onSubmit={(values, actions) => {
         actions.resetForm()
         addCustomer(values);
@@ -19,24 +17,24 @@ return(
       {(props) => (
         <View>
           <TextInput
-          placeholder="Review title"
-          onChangeText={props.handleChange('title')}
+          placeholder="Customer Name"
+          onChangeText={props.handleChange('name')}
           value={props.values.title}
           />
           <TextInput
           multiline
-          placeholder="Review body"
-          onChangeText={props.handleChange('body')}
+          placeholder="Allergies"
+          onChangeText={props.handleChange('allergies')}
           value={props.values.body}
           />
           <TextInput
-          placeholder="Rating (1-5)"
-          onChangeText={props.handleChange('rating')}
+          placeholder="Notes"
+          onChangeText={props.handleChange('notes')}
           value={props.values.rating}
-          keyboardType='numeric'
+          // keyboardType='numeric'
           />
 
-          <Button title='submit' color='maroon' onPress={props.handleSubmit} />
+          <Button title='submit' color='blue' onPress={props.handleSubmit} />
         </View>
       )
       }
@@ -47,6 +45,9 @@ return(
 
 const styles = StyleSheet.create({
     inout: {
+      alignItems: "center", 
+      justifyContent: "center",
+      textAlign: 'center',
       borderWidth: 1,
       borderColor: '#ddd',
       padding: 10,

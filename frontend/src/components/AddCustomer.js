@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import AddCustomerForm from '../containers/AddCustomerForm'
+import Request from '../helpers/Request'
 
-const addCustomer = (customer) => {
-  console.log(customer);
+const handleAddCustomer = (customer) => {
+  const request = new Request();
+  request.post('http://localhost:8080/customers', customer)
+  .then(() => this.props.navigation.navigate("ManageCustomers"));
 }
 
 class AddCustomer extends Component {
   constructor(props){
-    // console.log("ManageCustomers:", props.navigate)
     super(props);
     this.state = {
       name: "",
@@ -21,13 +23,7 @@ class AddCustomer extends Component {
   render(){
     return(
           <View style={styles.customerForm}>
-            <AddCustomerForm addCustomer={addCustomer} />
-
-            {/* <Text style={styles.header}>Add Customer</Text>
-            <TextInput placeholder="Customer Name"></TextInput>
-            {/* {/* <FormLabel>Name</FormLabel> */}
-            {/* <FormInput onChangeText={console.log()}/> */}
-            {/* <FormValidationMessage>Error message</FormValidationMessage> */} 
+            <AddCustomerForm addCustomer={handleAddCustomer} />
           </View>
       )
   }

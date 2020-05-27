@@ -21,10 +21,6 @@ class ManageCustomers extends Component {
       })
   }
 
-  // handleFormInput(formData)(
-  //   .then my api call
-  // )
-
   render() {
     return (
       < View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>

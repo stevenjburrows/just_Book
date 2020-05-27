@@ -14,6 +14,7 @@ class Request {
   }
 
   post(url, payload) {
+    // console.log(payload.stringify)
     return fetch(url, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
