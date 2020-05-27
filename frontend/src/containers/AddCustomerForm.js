@@ -18,20 +18,20 @@ return(
           <TextInput
           placeholder="Customer Name"
           onChangeText={props.handleChange('name')}
-          value={props.values.title}
+          value={props.values.name}
           style={styles.input}
           />
           <TextInput
           multiline
           placeholder="Allergies"
           onChangeText={props.handleChange('allergies')}
-          value={props.values.body}
+          value={props.values.allergies}
           style={styles.input}
           />
           <TextInput
           placeholder="Notes"
           onChangeText={props.handleChange('notes')}
-          value={props.values.rating}
+          value={props.values.notes}
           style={styles.input}
           // keyboardType='numeric'
           />

@@ -224,3 +224,6 @@ Caused by: java.nio.channels.OverlappingFileLockException
 2020-05-25 20:40:21 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CUSTOMERS[*] SELECT * FROM BOOKINGS"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
 CUSTOMERS SELECT * FROM BOOKINGS [42001-200]
+2020-05-27 14:42:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP TABLE BOOKINGS,[*]"; expected "identifier"; SQL statement:
+DROP TABLE bookings, [42001-200]
