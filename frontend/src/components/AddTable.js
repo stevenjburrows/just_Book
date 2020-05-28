@@ -26,9 +26,9 @@ class AddTable extends Component {
         <View style={styles.form}>
           <AddTableForm addTable={this.handleAddTable} />
         </View>
-    )
-      }
-}
+          )
+       }
+    }
 
 
 const styles = StyleSheet.create({

@@ -3,6 +3,7 @@ import { Text, View, Button, StyleSheet } from "react-native";
 import Request from "../helpers/Request.js";
 import Booking from "../containers/Booking.js";
 import AddBookingForm from "../containers/AddBookingForm";
+import { ScrollView } from "react-native-gesture-handler";
 
 class ManageBookings extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class ManageBookings extends Component {
 
   render() {
     return (
+      <ScrollView>
       <View style={styles.bg}>
         <Button
           title="Add Booking"
@@ -59,6 +61,7 @@ class ManageBookings extends Component {
           ))
         }
       </View >
+      </ScrollView>
     )
   }
 }
